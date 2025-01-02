@@ -106,5 +106,69 @@ The project evaluates these techniques by analyzing execution time, cache perfor
 
 ### Compilation
 Use the GNU Compiler Collection (`gcc`) with OpenMP for parallel execution:
-```bash
+
 gcc -fopenmp <source_file>.c -o <executable_name> -O3
+
+    -fopenmp: Enables OpenMP directives for parallelism.
+    -O3: Optimizes the binary for maximum performance.
+
+Execution
+
+Executables accept command-line arguments for customization:
+Naive Implementation
+
+./matmul_naive <matrix_size> <num_threads>
+
+Example:
+
+./matmul_naive 1000 4
+
+Blocked Implementation
+
+./matmul_blocked <matrix_size> <num_threads> <block_size>
+
+Example:
+
+./matmul_blocked 1000 4 64
+
+Performance Analysis
+Metrics
+
+    Execution Time: Time taken for matrix multiplication.
+    Speedup: Ratio of naive execution time to optimized execution time.
+    Cache Miss Rates: Percentage of L1, L2, and LLC cache misses.
+
+Tools
+
+    Intel VTune Profiler: Provides detailed insights into CPU and memory performance.
+    Python: Scripts for graph generation and analysis.
+
+Key Observations
+
+    Loop Unrolling: Reduced loop control overhead improves performance for larger matrices.
+    Cache Blocking: Significantly reduces cache misses, improving memory-bound performance.
+    Memory Alignment: Enhances cache utilization by ensuring efficient memory access patterns.
+
+Tools and Libraries Used
+
+    C and OpenMP: For implementation and parallelization.
+    Intel VTune Profiler: For detailed profiling of memory and CPU performance.
+    Python: For scripting and performance visualization.
+
+Results and Observations
+
+    Execution Time:
+        The naive implementation is the slowest due to poor cache utilization.
+        Blocking and alignment provide substantial performance improvements.
+
+    Speedup:
+        Blocking achieves the highest speedup for large matrices and higher thread counts.
+
+    Cache Miss Rates:
+        Blocking reduces cache misses significantly compared to other methods.
+
+Future Work
+
+    Explore GPU-based acceleration for matrix multiplication using CUDA or OpenCL.
+    Investigate adaptive tiling strategies based on matrix size and hardware specifications.
+    Optimize for NUMA (Non-Uniform Memory Access) systems for even better parallel performance.
