@@ -1,0 +1,119 @@
+EMON Version .............. V11.50 Beta 
+Copyright(C) 1993 Intel Corporation. All rights reserved.
+Application Build Date: Nov 12 2024 at 11:04:54
+SEP Driver Version: 5.50 Beta (public)
+PAX Driver Version: 1.0
+Linux Kernel Version: 6.12.6-100.fc40.x86_64
+Collection Mode: Driver
+total_number_of_processors  ...... 16
+number_of_online_processors ...... 16
+cpu_family ................ Intel(R) microarchitecture code named Tigerlake H
+cpu_model ................. 141 (0x8d)
+cpu_stepping .............. 1 (0x1)
+
+Cache Info (core):
+L1 Data Cache ............. 48KB, 12-way, 64-byte line size
+                            16 HW threads share this cache, No SW Init Required
+L1 Code Cache ............. 32KB, 8-way, 64-byte line size
+                            16 HW threads share this cache, No SW Init Required
+L2 Unified Cache .......... 1MB, 20-way, 64-byte line size
+                            16 HW threads share this cache, No SW Init Required
+L3 Unified Cache .......... 24MB, 12-way, 64-byte line size
+                            No SW Init Required
+64-byte Prefetching
+
+Device Type ............... Intel(R) microarchitecture code named Tigerlake H
+EMON Database ............. tigerlake
+Platform type ............. 142
+
+System Features:
+    (Number of Packages:    1)
+    (Cores Per Package:    8)
+    (Threads Per Package:  16)
+
+Processor Features (core):
+number_of_selectors ....... 8
+number_of_var_counters .... 8
+number_of_fixed_ctrs....... 4
+Fixed Counter Events:
+counter 0 ................. INST_RETIRED.ANY
+counter 1 ................. CPU_CLK_UNHALTED.THREAD
+counter 2 ................. CPU_CLK_UNHALTED.REF_TSC
+counter 3 ................. TOPDOWN.SLOTS
+number of devices ......... 1
+number_of_events .......... 260
+    (Thermal Throttling) (Enabled)
+    (Hyper-Threading) (Enabled)
+    (DCU IP Prefetching) (Enabled)
+    (DCU Streamer Prefetching) (Enabled)
+    (MLC Spatial Prefetching) (Enabled)
+    (MLC Streamer Prefetching) (Enabled)
+    (Threads Per Core:      2)
+
+Uncore Performance Monitoring Units:
+    cbo             : 8
+    imc             : 1
+    ncu             : 2
+    gt              : 1
+
+GPU Information:
+    No GPU devices found
+
+RAM Features:
+    (Package/Memory Controller/Channel)
+	(0/0/0) (Total Number of Ranks on this Channel: 2)
+		 (Dimm0 Info: Capacity = 8 GB, Data Width = 64, Form Factor = SODIMM, Memory Type = DDR4, Memory Type Detail = Synchronous, Speed = 3200MT/s, Configured Speed = 2933MT/s)
+		 (Dimm1 Info: Capacity = 8 GB, Data Width = 64, Form Factor = SODIMM, Memory Type = DDR4, Memory Type Detail = Synchronous, Speed = 3200MT/s, Configured Speed = 2933MT/s)
+	(0/0/1) (Total Number of Ranks on this Channel: 2)
+		 (Dimm0 Info: Empty)
+		 (Dimm1 Info: Empty)
+	(0/0/2) (Total Number of Ranks on this Channel: 2)
+		 (Dimm0 Info: Empty)
+		 (Dimm1 Info: Empty)
+	(0/0/3) (Total Number of Ranks on this Channel: 2)
+		 (Dimm0 Info: Empty)
+		 (Dimm1 Info: Empty)
+	(0/1/0) (Total Number of Ranks on this Channel: 2)
+		 (Dimm0 Info: Empty)
+		 (Dimm1 Info: Empty)
+	(0/1/1) (Total Number of Ranks on this Channel: 2)
+		 (Dimm0 Info: Empty)
+		 (Dimm1 Info: Empty)
+	(0/1/2) (Total Number of Ranks on this Channel: 2)
+		 (Dimm0 Info: Empty)
+		 (Dimm1 Info: Empty)
+	(0/1/3) (Total Number of Ranks on this Channel: 2)
+		 (Dimm0 Info: Empty)
+		 (Dimm1 Info: Empty)
+
+TSC Freq .................. 2304.00 MHz
+
+Processor Base Freq ....... 2300.00 MHz
+
+Processor Maximum Freq .... 4600.00 MHz
+
+Bus Reference Freq ........ 100.00 MHz
+
+NUMA node(s):                         1
+NUMA node0 CPU(s):                    0-15
+
+		   OS Processor <-> Physical/Logical Mapping
+		   -----------------------------------------
+	  OS Processor	  Phys. Package	      Core	Logical Processor	Core Type
+		0		0		0		0		core			
+		1		0		1		0		core			
+		2		0		2		0		core			
+		3		0		3		0		core			
+		4		0		4		0		core			
+		5		0		5		0		core			
+		6		0		6		0		core			
+		7		0		7		0		core			
+		8		0		0		1		core			
+		9		0		1		1		core			
+		10		0		2		1		core			
+		11		0		3		1		core			
+		12		0		4		1		core			
+		13		0		5		1		core			
+		14		0		6		1		core			
+		15		0		7		1		core			
+		   -----------------------------------------

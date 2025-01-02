@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <rdmgr>
+  <collectionTimeBegin type="u64_t">1735584008</collectionTimeBegin>
+  <collectionTimeEnd type="u64_t">1735584012</collectionTimeEnd>
+ </rdmgr>
+</root>

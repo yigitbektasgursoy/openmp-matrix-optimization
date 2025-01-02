@@ -1,0 +1,86 @@
+
+Running Naive with 1 threads...
+[Naive] N=2048, threads=1, time=65.231092 sec
+
+ Performance counter stats for '../bin/matmul_naive 2048 1 64':
+
+     9,750,911,003      L1-dcache-load-misses:u          #   74.70% of all L1-dcache accesses 
+    13,052,857,000      L1-dcache-loads:u                                                     
+     5,998,153,776      LLC-load-misses:u                #   75.63% of all LL-cache accesses  
+     7,930,791,253      LLC-loads:u                                                           
+
+      65.371177313 seconds time elapsed
+
+      65.096496000 seconds user
+       0.079065000 seconds sys
+
+
+Results for 1 threads saved to ../logs/cache_hit_miss_logs/Naive_cache_misses.log
+Running Naive with 2 threads...
+[Naive] N=2048, threads=2, time=13.500957 sec
+
+ Performance counter stats for '../bin/matmul_naive 2048 2 64':
+
+     9,864,854,107      L1-dcache-load-misses:u          #   75.58% of all L1-dcache accesses 
+    13,052,980,799      L1-dcache-loads:u                                                     
+       675,941,215      LLC-load-misses:u                #    8.49% of all LL-cache accesses  
+     7,963,933,975      LLC-loads:u                                                           
+
+      13.646667549 seconds time elapsed
+
+      27.033523000 seconds user
+       0.035868000 seconds sys
+
+
+Results for 2 threads saved to ../logs/cache_hit_miss_logs/Naive_cache_misses.log
+Running Naive with 4 threads...
+[Naive] N=2048, threads=4, time=5.399626 sec
+
+ Performance counter stats for '../bin/matmul_naive 2048 4 64':
+
+     9,661,774,536      L1-dcache-load-misses:u          #   74.02% of all L1-dcache accesses 
+    13,053,240,188      L1-dcache-loads:u                                                     
+       192,187,952      LLC-load-misses:u                #    2.44% of all LL-cache accesses  
+     7,882,080,653      LLC-loads:u                                                           
+
+       5.558810225 seconds time elapsed
+
+      21.676597000 seconds user
+       0.031841000 seconds sys
+
+
+Results for 4 threads saved to ../logs/cache_hit_miss_logs/Naive_cache_misses.log
+Running Naive with 8 threads...
+[Naive] N=2048, threads=8, time=3.675975 sec
+
+ Performance counter stats for '../bin/matmul_naive 2048 8 64':
+
+     9,903,239,050      L1-dcache-load-misses:u          #   75.85% of all L1-dcache accesses 
+    13,055,815,090      L1-dcache-loads:u                                                     
+       190,732,643      LLC-load-misses:u                #    2.46% of all LL-cache accesses  
+     7,761,145,682      LLC-loads:u                                                           
+
+       3.824128088 seconds time elapsed
+
+      28.806317000 seconds user
+       0.030753000 seconds sys
+
+
+Results for 8 threads saved to ../logs/cache_hit_miss_logs/Naive_cache_misses.log
+Running Naive with 16 threads...
+[Naive] N=2048, threads=16, time=6.274359 sec
+
+ Performance counter stats for '../bin/matmul_naive 2048 16 64':
+
+    12,085,291,708      L1-dcache-load-misses:u          #   92.54% of all L1-dcache accesses 
+    13,059,946,132      L1-dcache-loads:u                                                     
+     1,007,325,103      LLC-load-misses:u                #   13.61% of all LL-cache accesses  
+     7,402,186,651      LLC-loads:u                                                           
+
+       6.420068816 seconds time elapsed
+
+      96.030332000 seconds user
+       0.246094000 seconds sys
+
+
+Results for 16 threads saved to ../logs/cache_hit_miss_logs/Naive_cache_misses.log
