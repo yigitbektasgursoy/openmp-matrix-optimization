@@ -277,7 +277,7 @@ def plot_l1_percentage_separate(df_l1, graph_dir, dpi=300):
             data=subset, x="Threads", y="L1_dcache_Perc",
             hue="Implementation", marker="o"
         )
-        plt.title(f"L1-dcache Miss % (N={size_val})")
+        plt.title(f"L1-dcache Miss % (Matrix Size={size_val}x{size_val})")
         plt.ylabel("L1-dcache Misses (%)")
         plt.xlabel("Threads")
         plt.ylim(0, None)
@@ -312,7 +312,7 @@ def plot_llc_percentage_separate(df_llc, graph_dir, dpi=300):
             data=subset, x="Threads", y="LLC_miss_Perc",
             hue="Implementation", marker="o"
         )
-        plt.title(f"LLC-load Miss % (N={size_val})")
+        plt.title(f"LLC-load Miss % (Matrix Size={size_val}x{size_val})")
         plt.ylabel("LLC-load Misses (%)")
         plt.xlabel("Threads")
         plt.ylim(0, None)
@@ -347,7 +347,7 @@ def plot_cpu_util_separate(df_cpu, graph_dir, dpi=300):
             data=subset, x="Threads", y="CPU_Utilization",
             hue="Implementation", marker="o"
         )
-        plt.title(f"CPU Utilization (N={size_val})")
+        plt.title(f"CPU Utilization (Matrix Size={size_val}x{size_val})")
         plt.ylabel("CPU Utilization (%)")
         plt.xlabel("Threads")
         plt.ylim(0, 100)
@@ -384,7 +384,7 @@ def plot_execution_time_separate(df_time, graph_dir, dpi=300):
             data=subset, x="Threads", y="Time",
             hue="Implementation", marker="o"
         )
-        plt.title(f"Execution Time vs. Threads (N={size_val})")
+        plt.title(f"Execution Time vs. Threads (Matrix Size={size_val}x{size_val})")
         plt.ylabel("Time (sec)")
         plt.xlabel("Threads")
         plt.yscale("log")  # optional: log scale
@@ -421,7 +421,7 @@ def plot_execution_time_separate(df_time, graph_dir, dpi=300):
                 data=df_speedup, x="Threads", y="Speedup",
                 hue="Implementation", marker="o"
             )
-            plt.title(f"Speedup vs. Threads (N={size_val})")
+            plt.title(f"Speedup vs. Threads (Matrix Size={size_val}x{size_val})")
             plt.ylabel("Speedup (T1/Tn)")
             plt.xlabel("Threads")
             plt.ylim(0, None)
