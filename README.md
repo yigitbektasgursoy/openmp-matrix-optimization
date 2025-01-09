@@ -43,66 +43,66 @@ Below are **all** of the generated PNGs, separated by metric and matrix size.
 
 ### 1) CPU Utilization
 
-**N = 1024**  
-![CPU Utilization (N=1024)](graphs/cpu_utilization_N1024.png)
+**Matrix Size = 1024**  
+![CPU Utilization (Matrix Size = 1024)](graphs/cpu_utilization_N1024.png)
 
-**N = 2048**  
-![CPU Utilization (N=2048)](graphs/cpu_utilization_N2048.png)
+**Matrix Size = 2048**  
+![CPU Utilization (Matrix Size = 2048)](graphs/cpu_utilization_N2048.png)
 
-**N = 4096**  
-![CPU Utilization (N=4096)](graphs/cpu_utilization_N4096.png)
+**Matrix Size = 4096**  
+![CPU Utilization (Matrix Size = 4096)](graphs/cpu_utilization_N4096.png)
 
 ---
 
 ### 2) Execution Time
 
-**N = 1024**  
-![Execution Time (N=1024)](graphs/exec_time_N1024.png)
+**Matrix Size = 1024**  
+![Execution Time (Matrix Size = 1024)](graphs/exec_time_N1024.png)
 
-**N = 2048**  
-![Execution Time (N=2048)](graphs/exec_time_N2048.png)
+**Matrix Size = 2048**  
+![Execution Time (Matrix Size = 2048)](graphs/exec_time_N2048.png)
 
-**N = 4096**  
-![Execution Time (N=4096)](graphs/exec_time_N4096.png)
+**Matrix Size = 4096**  
+![Execution Time (Matrix Size = 4096)](graphs/exec_time_N4096.png)
 
 ---
 
 ### 3) L1-dcache Miss Percentage
 
-**N = 1024**  
-![L1 dcache Miss (N=1024)](graphs/l1_dcache_percentage_N1024.png)
+**Matrix Size = 1024**  
+![L1 dcache Miss % (Matrix Size = 1024)](graphs/l1_dcache_percentage_N1024.png)
 
-**N = 2048**  
-![L1 dcache Miss (N=2048)](graphs/l1_dcache_percentage_N2048.png)
+**Matrix Size = 2048**  
+![L1 dcache Miss % (Matrix Size = 2048)](graphs/l1_dcache_percentage_N2048.png)
 
-**N = 4096**  
-![L1 dcache Miss (N=4096)](graphs/l1_dcache_percentage_N4096.png)
+**Matrix Size = 4096**  
+![L1 dcache Miss % (Matrix Size = 4096)](graphs/l1_dcache_percentage_N4096.png)
 
 ---
 
 ### 4) LLC-load Miss Percentage
 
-**N = 1024**  
-![LLC Miss (N=1024)](graphs/llc_miss_percentage_N1024.png)
+**Matrix Size = 1024**  
+![LLC Miss % (Matrix Size = 1024)](graphs/llc_miss_percentage_N1024.png)
 
-**N = 2048**  
-![LLC Miss (N=2048)](graphs/llc_miss_percentage_N2048.png)
+**Matrix Size = 2048**  
+![LLC Miss % (Matrix Size = 2048)](graphs/llc_miss_percentage_N2048.png)
 
-**N = 4096**  
-![LLC Miss (N=4096)](graphs/llc_miss_percentage_N4096.png)
+**Matrix Size = 4096**  
+![LLC Miss % (Matrix Size = 4096)](graphs/llc_miss_percentage_N4096.png)
 
 ---
 
 ### 5) Speedup
 
-**N = 1024**  
-![Speedup (N=1024)](graphs/speedup_N1024.png)
+**Matrix Size = 1024**  
+![Speedup (Matrix Size = 1024)](graphs/speedup_N1024.png)
 
-**N = 2048**  
-![Speedup (N=2048)](graphs/speedup_N2048.png)
+**Matrix Size = 2048**  
+![Speedup (Matrix Size = 2048)](graphs/speedup_N2048.png)
 
-**N = 4096**  
-![Speedup (N=4096)](graphs/speedup_N4096.png)
+**Matrix Size = 4096**  
+![Speedup (Matrix Size = 4096)](graphs/speedup_N4096.png)
 
 ---
 
