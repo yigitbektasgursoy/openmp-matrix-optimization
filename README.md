@@ -1,106 +1,111 @@
 # Matrix Multiplication Optimization Project
 
-This project implements and evaluates advanced optimization techniques for matrix multiplication, including loop unrolling, cache blocking, and explicit memory alignment. The performance is analyzed in terms of execution time, speedup, cache miss rates, and CPU utilization. Multi-threading is achieved using OpenMP, with detailed profiling using Intel VTune.
+A compact yet powerful demonstration of matrix multiplication optimizations using **cache blocking**, **memory alignment**, **loop unrolling**, and **multi-threading (OpenMP)**.
+
+## Highlights
+
+- **Naive vs. Optimized**  
+  Compare a simple triple-nested loop (`matmul_naive.c`) against optimized approaches (cache-blocked, aligned, unrolled).
+
+- **Multi-threading**  
+  All methods support **OpenMP** for parallel execution and improved CPU utilization.
+
+- **Analysis**  
+  Profiling with **Intel VTune** plus custom scripts yields metrics on:
+  - **Execution Time**
+  - **Speedup**
+  - **L1/LLC Cache Miss Rates**
+  - **CPU Utilization**
+
+## Directory Overview
+
+- **`src/`**  
+  - Core implementations (`matmul_naive.c`, `matmul_blocked.c`, etc.)
+  - `test_matmul.c` for validation and performance checks
+
+- **`logs/`**  
+  - Recorded performance data (cache miss rates, CPU usage)
+
+- **`graphs/`**  
+  - Plots illustrating key performance metrics (shown below)
+
+- **`scripts/`**  
+  - Automation and visualization scripts (e.g., `cache_analysis_draw.py`, `compare_threading.py`)
+
+- **`report/`**  
+  - Methodology, results, and conclusions in a concise PDF/Markdown document
 
 ---
 
-## Project Structure
+## Detailed Graphs
 
-### Key Components
-1. **`src/`**:
-   - **`matmul_naive.c`**: Baseline triple-nested loop implementation.
-   - **`matmul_unrolled.c`**: Optimized with inner loop unrolling for reduced overhead.
-   - **`matmul_blocked.c`**: Employs cache-blocking to improve memory locality.
-   - **`matmul_aligned.c`**: Explores memory alignment to reduce cache misses.
-   - **`test_matmul.c`**: Integrates and tests all methods for correctness and performance consistency.
+Below are **all** of the generated PNGs, separated by metric and matrix size.
 
-2. **`logs/`**:
-   - Performance logs including cache miss rates and CPU utilization.
-   - Examples: `Aligned_cache_misses.log`, `Blocked_cache_misses.log`.
+### 1) CPU Utilization
 
-3. **`graphs/`**:
-   - Visualizations comparing performance metrics:
-     - Execution time (`execution_time.png`)
-     - Speedup (`speedup.png`)
-     - Cache miss rates (`l1_miss_rates_chart.png`, `llc_miss_rates_chart.png`)
-     - CPU utilization (`cpu_utilization.png`)
+**N = 1024**  
+![CPU Utilization (N=1024)](graphs/cpu_utilization_N1024.png)
 
-4. **`scripts/`**:
-   - **`cache_analysis_draw.py`**: Visualizes cache miss data.
-   - **`compare_threading.py`**: Analyzes performance scaling with thread count.
-   - **`run_vtune_analyses.sh`**: Automates Intel VTune profiler runs.
+**N = 2048**  
+![CPU Utilization (N=2048)](graphs/cpu_utilization_N2048.png)
 
-5. **`report/`**:
-   - Detailed project documentation summarizing methodology, results, and conclusions.
+**N = 4096**  
+![CPU Utilization (N=4096)](graphs/cpu_utilization_N4096.png)
 
 ---
 
-## Optimization Techniques
+### 2) Execution Time
 
-1. **Cache Blocking (Tiling)**:
-   - Improves data reuse by dividing matrices into smaller blocks that fit into the CPU cache.
-   - Implemented in `matmul_blocked.c`, with configurable block size.
+**N = 1024**  
+![Execution Time (N=1024)](graphs/exec_time_N1024.png)
 
-2. **Memory Alignment**:
-   - Aligns memory addresses to cache line boundaries (64 bytes) to optimize memory access patterns.
-   - Demonstrated in `matmul_aligned.c`.
+**N = 2048**  
+![Execution Time (N=2048)](graphs/exec_time_N2048.png)
 
-3. **Loop Unrolling**:
-   - Reduces loop overhead by processing multiple iterations per loop cycle.
-   - Example: Unrolling by a factor of 4 in `matmul_unrolled.c`.
-
-4. **Threading**:
-   - All methods leverage OpenMP for parallel execution, with dynamic thread management.
+**N = 4096**  
+![Execution Time (N=4096)](graphs/exec_time_N4096.png)
 
 ---
 
-## Graphs and Results
+### 3) L1-dcache Miss Percentage
 
-### Execution Time
-Comparison of execution times for different methods and configurations.
-![Execution Time](graphs/execution_time.png)
+**N = 1024**  
+![L1 dcache Miss (N=1024)](graphs/l1_dcache_percentage_N1024.png)
 
-### Speedup
-Speedup achieved by each optimization technique relative to the naive implementation.
-![Speedup](graphs/speedup.png)
+**N = 2048**  
+![L1 dcache Miss (N=2048)](graphs/l1_dcache_percentage_N2048.png)
 
-### Cache Miss Rates
-- **L1 Cache Miss Rates**:
-  Highlights the percentage of cache misses at the L1 level.
-  ![L1 Cache Miss Rates](graphs/l1_miss_rates_chart.png)
-
-- **LLC (Last-Level Cache) Miss Rates**:
-  Demonstrates memory access efficiency.
-  ![LLC Miss Rates](graphs/llc_miss_rates_chart.png)
-
-### CPU Utilization
-Shows the CPU utilization across different implementations and thread counts.
-![CPU Utilization](graphs/cpu_utilization.png)
+**N = 4096**  
+![L1 dcache Miss (N=4096)](graphs/l1_dcache_percentage_N4096.png)
 
 ---
 
-## Scripts and Automation
+### 4) LLC-load Miss Percentage
 
-1. **Performance Automation**:
-   - `measure_cache_misses.sh`: Automates the collection of cache miss statistics.
-   - `run_vtune_analyses.sh`: Executes VTune profiler tasks for each method.
+**N = 1024**  
+![LLC Miss (N=1024)](graphs/llc_miss_percentage_N1024.png)
 
-2. **Visualization**:
-   - `cache_analysis_draw.py`: Generates cache miss rate charts.
-   - `compare_threading.py`: Produces threading scalability plots.
+**N = 2048**  
+![LLC Miss (N=2048)](graphs/llc_miss_percentage_N2048.png)
+
+**N = 4096**  
+![LLC Miss (N=4096)](graphs/llc_miss_percentage_N4096.png)
+
+---
+
+### 5) Speedup
+
+**N = 1024**  
+![Speedup (N=1024)](graphs/speedup_N1024.png)
+
+**N = 2048**  
+![Speedup (N=2048)](graphs/speedup_N2048.png)
+
+**N = 4096**  
+![Speedup (N=4096)](graphs/speedup_N4096.png)
 
 ---
 
 ## Conclusion
 
-This project demonstrates the significant performance improvements that can be achieved using advanced optimization techniques such as blocking, unrolling, and memory alignment. 
-
-### Key Insights:
-- **Blocking and alignment** drastically reduce cache misses, improving both memory-bound and compute-bound performance.
-- **Loop unrolling** minimizes overhead and improves throughput.
-- **CPU utilization** scales efficiently with thread count in optimized implementations.
-
-Explore the scripts and visualizations to dive deeper into the performance characteristics of each technique.
-
-For further details, refer to the project report in the `report/` directory.
-
+By integrating **cache blocking**, **memory alignment**, **loop unrolling**, and **multi-threading**, we significantly reduce cache misses and boost CPU utilization. Check out the **logs** for raw data, **graphs** for visual insights, and the **report** folder for a comprehensive discussion of these results.
