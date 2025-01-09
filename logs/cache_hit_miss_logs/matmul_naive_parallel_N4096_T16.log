@@ -1,0 +1,24 @@
+Cache Performance Analysis
+==========================
+Program: matmul_naive_parallel
+Matrix Size: 4096
+Threads: 16
+Date: Thu Jan  9 12:27:14 AM +03 2025
+==========================\n
+
+ Performance counter stats for '../bin/matmul_naive_parallel 4096 16':
+
+   134,127,479,918      L1-dcache-load-misses:u          #  129.26% of all L1-dcache accesses 
+   103,763,241,873      L1-dcache-loads:u                                                     
+    17,928,234,583      LLC-load-misses:u                #   30.72% of all LL-cache accesses  
+    58,360,086,220      LLC-loads:u                                                           
+
+     134.787021029 seconds time elapsed
+
+    1735.832060000 seconds user
+      22.939133000 seconds sys
+
+
+
+---------------------------
+

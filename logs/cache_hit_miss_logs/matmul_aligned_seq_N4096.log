@@ -1,0 +1,23 @@
+Cache Performance Analysis
+==========================
+Program: matmul_aligned_seq
+Matrix Size: 4096
+Date: Thu Jan  9 12:08:28 AM +03 2025
+==========================\n
+
+ Performance counter stats for '../bin/matmul_aligned_seq 4096':
+
+   141,487,481,067      L1-dcache-load-misses:u          #  136.37% of all L1-dcache accesses 
+   103,751,141,311      L1-dcache-loads:u                                                     
+    38,662,110,334      LLC-load-misses:u                #   57.61% of all LL-cache accesses  
+    67,105,003,165      LLC-loads:u                                                           
+
+     617.859438751 seconds time elapsed
+
+     614.707704000 seconds user
+       0.277088000 seconds sys
+
+
+
+---------------------------
+

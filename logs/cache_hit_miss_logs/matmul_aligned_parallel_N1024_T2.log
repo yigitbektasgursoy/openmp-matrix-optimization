@@ -1,0 +1,24 @@
+Cache Performance Analysis
+==========================
+Program: matmul_aligned_parallel
+Matrix Size: 1024
+Threads: 2
+Date: Wed Jan  8 11:56:58 PM +03 2025
+==========================\n
+
+ Performance counter stats for '../bin/matmul_aligned_parallel 1024 2':
+
+     1,078,254,424      L1-dcache-load-misses:u          #   65.23% of all L1-dcache accesses 
+     1,652,996,078      L1-dcache-loads:u                                                     
+           367,649      LLC-load-misses:u                #    0.04% of all LL-cache accesses  
+       913,572,188      LLC-loads:u                                                           
+
+       0.719816287 seconds time elapsed
+
+       1.381957000 seconds user
+       0.009962000 seconds sys
+
+
+
+---------------------------
+

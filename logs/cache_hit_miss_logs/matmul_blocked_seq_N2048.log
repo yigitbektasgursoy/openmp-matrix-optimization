@@ -1,0 +1,24 @@
+Cache Performance Analysis
+==========================
+Program: matmul_blocked_seq
+Matrix Size: 2048
+Block Size: 64
+Date: Wed Jan  8 11:59:03 PM +03 2025
+==========================\n
+
+ Performance counter stats for '../bin/matmul_blocked_seq 2048 64':
+
+     8,708,025,821      L1-dcache-load-misses:u          #   65.97% of all L1-dcache accesses 
+    13,199,978,642      L1-dcache-loads:u                                                     
+         7,416,079      LLC-load-misses:u                #   74.05% of all LL-cache accesses  
+        10,014,470      LLC-loads:u                                                           
+
+       6.395473152 seconds time elapsed
+
+       6.310772000 seconds user
+       0.046504000 seconds sys
+
+
+
+---------------------------
+

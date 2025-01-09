@@ -1,44 +1,157 @@
 #!/usr/bin/env bash
 
-# Define thread counts
-THREADS=(1 2 4 8 16)
+# =============================================================================
+# Cache Performance Analysis Script
+# =============================================================================
+#
+# Description:
+#   Measures cache performance metrics (L1 and LLC misses/loads) for different
+#   matrix multiplication implementations (parallel and sequential) using Linux perf.
+#
+# Usage:
+#   ./measure_cache_perf.sh
+#
+# Requirements:
+#   - Linux perf tools installed
+#   - Matrix multiplication executables in ../bin directory
+# =============================================================================
 
-# Program configuration
-MATRIX_SIZE=2048
-BLOCK_SIZE=64
-PROGRAMS=("../bin/matmul_naive" "../bin/matmul_unrolled" "../bin/matmul_blocked" "../bin/matmul_aligned")
-PROGRAM_NAMES=("Naive" "Unrolled" "Blocked" "Aligned")
+# ----------------------------
+# Configuration
+# ----------------------------
 
-# Output directory for logs
+# Matrix sizes
+MATRIX_SIZES=(1024 2048 4096)
+
+# Thread configurations (only for parallel versions)
+THREADS_LIST=(2 4 8 16)
+
+# Programs to analyze
+PROGRAMS=(
+    "matmul_aligned_parallel"
+    "matmul_aligned_seq"
+    "matmul_blocked_parallel"
+    "matmul_blocked_seq"
+    "matmul_naive_parallel"
+    "matmul_naive_seq"
+    "matmul_unrolled_parallel"
+    "matmul_unrolled_seq"
+)
+
+# Directories
+BIN_DIR="../bin"
 LOG_DIR="../logs/cache_hit_miss_logs"
+
+# Create log directory
 mkdir -p "${LOG_DIR}"
 
-# Loop through each program
-for i in "${!PROGRAMS[@]}"; do
-    PROGRAM="${PROGRAMS[$i]}"
-    PROGRAM_NAME="${PROGRAM_NAMES[$i]}"
+# ----------------------------
+# Helper Functions
+# ----------------------------
 
-    # Ensure the program exists
-    if [ ! -x "${PROGRAM}" ]; then
-        echo "Error: Program '${PROGRAM}' not found or not executable."
-        continue
+# Function to log messages with timestamps
+log_message() {
+    local message="$1"
+    echo "$(date '+%Y-%m-%d %H:%M:%S') : ${message}"
+}
+
+# Function to perform cache analysis
+perform_cache_analysis() {
+    local program="$1"
+    local matrix_size="$2"
+    local threads="$3"
+    
+    # Construct program path
+    local program_path="${BIN_DIR}/${program}"
+    
+    # Construct arguments based on program type
+    if [[ "$program" == *"blocked"* ]]; then
+        # For blocked versions (matrix_size and block_size=64)
+        args="${matrix_size} 64"
+        # Add thread count only for parallel versions
+        if [[ "$program" == *"parallel"* ]]; then
+            args="${matrix_size} ${threads} 64"
+        fi
+    else
+        # For non-blocked versions (just matrix_size)
+        args="${matrix_size}"
+        # Add thread count only for parallel versions
+        if [[ "$program" == *"parallel"* ]]; then
+            args="${matrix_size} ${threads}"
+        fi
     fi
+    
+    # Create log file name
+    if [[ "${program}" == *"parallel"* ]]; then
+        log_file="${LOG_DIR}/${program}_N${matrix_size}_T${threads}.log"
+    else
+        log_file="${LOG_DIR}/${program}_N${matrix_size}.log"
+    fi
+    
+    # Log header
+    {
+        echo "Cache Performance Analysis"
+        echo "=========================="
+        echo "Program: ${program}"
+        echo "Matrix Size: ${matrix_size}"
+        if [[ "${program}" == *"blocked"* ]]; then
+            echo "Block Size: 64"
+        fi
+        if [[ "${program}" == *"parallel"* ]]; then
+            echo "Threads: ${threads}"
+        fi
+        echo "Date: $(date)"
+        echo "==========================\n"
+    } > "${log_file}"
+    
+    # Set thread count for parallel versions
+    if [[ "${program}" == *"parallel"* ]]; then
+        export OMP_NUM_THREADS="${threads}"
+    else
+        unset OMP_NUM_THREADS
+    fi
+    
+    # Run perf stat
+    if [[ "${program}" == *"parallel"* ]]; then
+        log_message "Running analysis for ${program} (N=${matrix_size}, T=${threads})"
+    else
+        log_message "Running analysis for ${program} (N=${matrix_size})"
+    fi
+    
+    perf stat -e L1-dcache-load-misses,L1-dcache-loads,LLC-load-misses,LLC-loads \
+        "${program_path}" ${args} 2>> "${log_file}"
+    
+    # Add separator
+    echo -e "\n---------------------------\n" >> "${log_file}"
+    
+    log_message "Analysis completed. Results saved to ${log_file}"
+}
 
-    # Combined log file for the program
-    LOG_FILE="${LOG_DIR}/${PROGRAM_NAME}_cache_misses.log"
-    echo "" > "${LOG_FILE}"  # Clear or create the log file
+# ----------------------------
+# Main Execution
+# ----------------------------
 
-    # Loop through each thread count
-    for T in "${THREADS[@]}"; do
-        echo "Running ${PROGRAM_NAME} with ${T} threads..." | tee -a "${LOG_FILE}"
+log_message "Starting cache performance analysis..."
 
-        # Run perf with the specified thread count and append the results to the program-specific log file
-        perf stat -e L1-dcache-load-misses,L1-dcache-loads,LLC-load-misses,LLC-loads \
-            ${PROGRAM} ${MATRIX_SIZE} ${T} ${BLOCK_SIZE} >> "${LOG_FILE}" 2>&1
-
-        echo "Results for ${T} threads saved to ${LOG_FILE}" | tee -a "${LOG_FILE}"
+for matrix_size in "${MATRIX_SIZES[@]}"; do
+    for program in "${PROGRAMS[@]}"; do
+        # Check if executable exists
+        if [ ! -x "${BIN_DIR}/${program}" ]; then
+            log_message "WARNING: Executable '${BIN_DIR}/${program}' not found or not executable."
+            continue
+        fi
+        
+        # Handle parallel vs sequential programs
+        if [[ "${program}" == *"parallel"* ]]; then
+            # For parallel programs, run with each thread count
+            for threads in "${THREADS_LIST[@]}"; do
+                perform_cache_analysis "${program}" "${matrix_size}" "${threads}"
+            done
+        else
+            # For sequential programs, run once without thread count
+            perform_cache_analysis "${program}" "${matrix_size}" ""
+        fi
     done
-
 done
 
-echo "All measurements completed. Logs stored in ${LOG_DIR}."
+log_message "All analyses completed. Results available in ${LOG_DIR}"

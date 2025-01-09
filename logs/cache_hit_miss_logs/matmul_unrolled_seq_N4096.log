@@ -1,0 +1,23 @@
+Cache Performance Analysis
+==========================
+Program: matmul_unrolled_seq
+Matrix Size: 4096
+Date: Thu Jan  9 12:47:16 AM +03 2025
+==========================\n
+
+ Performance counter stats for '../bin/matmul_unrolled_seq 4096':
+
+   142,068,422,946      L1-dcache-load-misses:u          #  102.78% of all L1-dcache accesses 
+   138,228,180,775      L1-dcache-loads:u                                                     
+    41,081,588,822      LLC-load-misses:u                #   61.13% of all LL-cache accesses  
+    67,208,931,141      LLC-loads:u                                                           
+
+     493.458418596 seconds time elapsed
+
+     492.176222000 seconds user
+       0.126667000 seconds sys
+
+
+
+---------------------------
+

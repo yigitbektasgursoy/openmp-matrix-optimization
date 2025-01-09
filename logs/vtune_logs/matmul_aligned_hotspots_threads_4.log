@@ -1,79 +1,0 @@
------------------------------------------------------
- VTune hotspots Analysis:
-   Code:       matmul_aligned
-   Args:       2048
-   Threads:    4
-   Result Dir: ./results/matmul_aligned_hotspots_threads_4
------------------------------------------------------
-vtune: Collection started. To stop the collection, either press CTRL-C or enter from another console window: vtune -r /home/yigit/Desktop/multicore_project/results/matmul_aligned_hotspots_threads_4 -command stop.
-[Aligned] N=2048, threads=4, time=5.792403 sec
-vtune: Collection stopped.
-vtune: Using result path `/home/yigit/Desktop/multicore_project/results/matmul_aligned_hotspots_threads_4'
-vtune: Executing actions  0 %                                                  vtune: Executing actions  0 % Finalizing results                               vtune: Executing actions  0 % Finalizing the result                            vtune: Executing actions  0 % Clearing the database                            vtune: Executing actions  7 % Clearing the database                            vtune: Executing actions  7 % Loading raw data to the database                 vtune: Executing actions  7 % Loading 'systemcollector-28543-yigit.home.sc' filvtune: Executing actions 12 % Loading 'systemcollector-28543-yigit.home.sc' filvtune: Executing actions 12 % Loading '28543-28550.0.trace' file               vtune: Executing actions 12 % Loading 'emon.0.bwhist' file                     vtune: Executing actions 12 % Loading '/home/yigit/Desktop/multicore_project/revtune: Executing actions 12 % Updating precomputed scalar metrics              vtune: Executing actions 14 % Updating precomputed scalar metrics              vtune: Executing actions 14 % Processing profile metrics and debug information vtune: Executing actions 19 % Processing profile metrics and debug information vtune: Executing actions 19 % Setting data model parameters                    vtune: Executing actions 19 % Resolving module symbols                         vtune: Executing actions 19 % Resolving information for `matmul_aligned'       
-vtune: Warning: Cannot locate debugging information for file `/home/yigit/Desktop/multicore_project/bin/matmul_aligned'.
-vtune: Executing actions 19 % Resolving information for `libgomp.so.1'         
-vtune: Warning: Cannot locate debugging information for file `/lib64/libgomp.so.1'.
-vtune: Executing actions 19 % Resolving information for `libc.so.6'            vtune: Executing actions 20 % Resolving information for `libc.so.6'            
-vtune: Warning: Cannot locate debugging information for file `/lib64/libc.so.6'.
-vtune: Executing actions 20 % Resolving information for `libtpsstool.so'       vtune: Executing actions 21 % Resolving information for `libtpsstool.so'       
-vtune: Warning: Cannot locate debugging information for file `/opt/intel/oneapi/vtune/2025.0/lib64/libtpsstool.so'.
-vtune: Executing actions 22 % Resolving information for `libtpsstool.so'       vtune: Executing actions 22 % Resolving bottom user stack information          vtune: Executing actions 23 % Resolving bottom user stack information          vtune: Executing actions 23 % Resolving thread name information                vtune: Executing actions 24 % Resolving thread name information                vtune: Executing actions 24 % Resolving call target names for dynamic code     vtune: Executing actions 25 % Resolving call target names for dynamic code     vtune: Executing actions 25 % Resolving interrupt name information             vtune: Executing actions 26 % Resolving interrupt name information             vtune: Executing actions 26 % Processing profile metrics and debug information vtune: Executing actions 28 % Processing profile metrics and debug information vtune: Executing actions 30 % Processing profile metrics and debug information vtune: Executing actions 31 % Processing profile metrics and debug information vtune: Executing actions 31 % Setting data model parameters                    vtune: Executing actions 32 % Setting data model parameters                    vtune: Executing actions 32 % Precomputing frequently used data                vtune: Executing actions 32 % Precomputing frequently used data                vtune: Executing actions 33 % Precomputing frequently used data                vtune: Executing actions 35 % Precomputing frequently used data                vtune: Executing actions 36 % Precomputing frequently used data                vtune: Executing actions 38 % Precomputing frequently used data                vtune: Executing actions 38 % Updating precomputed scalar metrics              vtune: Executing actions 39 % Updating precomputed scalar metrics              vtune: Executing actions 39 % Discarding redundant overtime data               vtune: Executing actions 41 % Discarding redundant overtime data               vtune: Executing actions 41 % Saving the result                                vtune: Executing actions 42 % Saving the result                                vtune: Executing actions 44 % Saving the result                                vtune: Executing actions 50 % Saving the result                                vtune: Executing actions 50 % Generating a report                              vtune: Executing actions 50 % Setting data model parameters                    vtune: Executing actions 75 % Setting data model parameters                    vtune: Executing actions 75 % Generating a report                              Elapsed Time: 5.934s
-    CPU Time: 23.230s
-        Effective Time: 23.230s
-        Spin Time: 0s
-        Overhead Time: 0s
-    Total Thread Count: 4
-    Paused Time: 0s
-
-Top Hotspots
-Function                      Module          CPU Time  % of CPU Time(%)
-----------------------------  --------------  --------  ----------------
-matmul_aligned._omp_fn.0      matmul_aligned   23.050s             99.2%
-rand                          libc.so.6         0.110s              0.5%
-__memset_evex_unaligned_erms  libc.so.6         0.020s              0.1%
-func@0x24980                  libgomp.so.1      0.020s              0.1%
-func@0x247e0                  libgomp.so.1      0.010s              0.0%
-[Others]                      N/A               0.020s              0.1%
-Effective Physical Core Utilization: 50.6% (4.048 out of 8)
- | The metric value is low, which may signal a poor physical CPU cores
- | utilization caused by:
- |     - load imbalance
- |     - threading runtime overhead
- |     - contended synchronization
- |     - thread/process underutilization
- |     - incorrect affinity that utilizes logical cores instead of physical
- |       cores
- | Explore sub-metrics to estimate the efficiency of MPI and OpenMP parallelism
- | or run the Locks and Waits analysis to identify parallel bottlenecks for
- | other parallel runtimes.
- |
-    Effective Logical Core Utilization: 25.4% (4.060 out of 16)
-     | The metric value is low, which may signal a poor logical CPU cores
-     | utilization. Consider improving physical core utilization as the first
-     | step and then look at opportunities to utilize logical cores, which in
-     | some cases can improve processor throughput and overall performance of
-     | multi-threaded applications.
-     |
-Collection and Platform Info
-    Application Command Line: ./bin/matmul_aligned "2048" "4" 
-    Operating System: 6.12.6-100.fc40.x86_64 
-    Computer Name: yigit.home
-    Result Size: 4.2 MB 
-    Collection start time: 18:41:35 30/12/2024 UTC
-    Collection stop time: 18:41:41 30/12/2024 UTC
-    Collector Type: Event-based counting driver,User-mode sampling and tracing
-    CPU
-        Name: Intel(R) microarchitecture code named Tigerlake H
-        Frequency: 2.304 GHz
-        Logical CPU Count: 16
-        Cache Allocation Technology
-            Level 2 capability: available
-            Level 3 capability: not detected
-
-If you want to skip descriptions of detected performance issues in the report,
-enter: vtune -report summary -report-knob show-issues=false -r <my_result_dir>.
-Alternatively, you may view the report in the csv format: vtune -report
-<report_name> -format=csv.
-vtune: Executing actions 100 % Generating a report                             vtune: Executing actions 100 % done                                            
-Analysis completed successfully.
-

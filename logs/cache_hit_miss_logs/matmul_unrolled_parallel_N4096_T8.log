@@ -1,0 +1,24 @@
+Cache Performance Analysis
+==========================
+Program: matmul_unrolled_parallel
+Matrix Size: 4096
+Threads: 8
+Date: Thu Jan  9 12:44:46 AM +03 2025
+==========================\n
+
+ Performance counter stats for '../bin/matmul_unrolled_parallel 4096 8':
+
+   141,411,908,767      L1-dcache-load-misses:u          #  102.30% of all L1-dcache accesses 
+   138,232,482,478      L1-dcache-loads:u                                                     
+     3,480,933,095      LLC-load-misses:u                #    5.00% of all LL-cache accesses  
+    69,607,899,058      LLC-loads:u                                                           
+
+      55.965042383 seconds time elapsed
+
+     437.082807000 seconds user
+       0.217158000 seconds sys
+
+
+
+---------------------------
+

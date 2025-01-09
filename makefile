@@ -1,86 +1,126 @@
 # ----------------------------------------------------------
-#  Makefile for Four Parallel Matrix Multiplication Programs
-#  Outputs executables in a ../bin folder
+#  Makefile for Sequential and Parallel Matrix Multiplication
 # ----------------------------------------------------------
 
 # Compiler and flags
 CC      = gcc
 CFLAGS  = -fopenmp -O3 -Wall -Wextra
-# (Add more flags if needed, e.g. -g, -march=native, etc.)
 
 # Directories
 SRC_DIR = ./src
 BIN_DIR = ./bin
 
-# Executable names (stored in bin/)
-BIN_NAIVE    = $(BIN_DIR)/matmul_naive
-BIN_UNROLLED = $(BIN_DIR)/matmul_unrolled
-BIN_BLOCKED  = $(BIN_DIR)/matmul_blocked
-BIN_ALIGNED  = $(BIN_DIR)/matmul_aligned
-BIN_TEST     = $(BIN_DIR)/test_matmul
+# Sequential executables
+BIN_NAIVE_SEQ    = $(BIN_DIR)/matmul_naive_seq
+BIN_UNROLLED_SEQ = $(BIN_DIR)/matmul_unrolled_seq
+BIN_BLOCKED_SEQ  = $(BIN_DIR)/matmul_blocked_seq
+BIN_ALIGNED_SEQ  = $(BIN_DIR)/matmul_aligned_seq
 
-# Source files
-SRC_NAIVE    = $(SRC_DIR)/matmul_naive.c
-SRC_UNROLLED = $(SRC_DIR)/matmul_unrolled.c
-SRC_BLOCKED  = $(SRC_DIR)/matmul_blocked.c
-SRC_ALIGNED  = $(SRC_DIR)/matmul_aligned.c
-SRC_TEST     = $(SRC_DIR)/test_matmul.c
+# Parallel executables
+BIN_NAIVE_PARALLEL    = $(BIN_DIR)/matmul_naive_parallel
+BIN_UNROLLED_PARALLEL = $(BIN_DIR)/matmul_unrolled_parallel
+BIN_BLOCKED_PARALLEL  = $(BIN_DIR)/matmul_blocked_parallel
+BIN_ALIGNED_PARALLEL  = $(BIN_DIR)/matmul_aligned_parallel
 
-# Ensure bin directory exists before building
+# Test executable
+BIN_TEST = $(BIN_DIR)/test_matmul
+
+# Source files - Sequential
+SRC_NAIVE_SEQ    = $(SRC_DIR)/matmul_naive_seq.c
+SRC_UNROLLED_SEQ = $(SRC_DIR)/matmul_unrolled_seq.c
+SRC_BLOCKED_SEQ  = $(SRC_DIR)/matmul_blocked_seq.c
+SRC_ALIGNED_SEQ  = $(SRC_DIR)/matmul_aligned_seq.c
+
+# Source files - Parallel
+SRC_NAIVE_PARALLEL    = $(SRC_DIR)/matmul_naive_parallel.c
+SRC_UNROLLED_PARALLEL = $(SRC_DIR)/matmul_unrolled_parallel.c
+SRC_BLOCKED_PARALLEL  = $(SRC_DIR)/matmul_blocked_parallel.c
+SRC_ALIGNED_PARALLEL  = $(SRC_DIR)/matmul_aligned_parallel.c
+
+# Test source
+SRC_TEST = $(SRC_DIR)/test_matmul.c
+
+# Directory creation
 MKDIR_P = mkdir -p
 
-# Default rule: build all executables (including test_matmul)
-all: $(BIN_NAIVE) $(BIN_UNROLLED) $(BIN_BLOCKED) $(BIN_ALIGNED) $(BIN_TEST)
+# Default target: build everything
+all: $(BIN_NAIVE_SEQ) $(BIN_UNROLLED_SEQ) $(BIN_BLOCKED_SEQ) $(BIN_ALIGNED_SEQ) \
+     $(BIN_NAIVE_PARALLEL) $(BIN_UNROLLED_PARALLEL) $(BIN_BLOCKED_PARALLEL) $(BIN_ALIGNED_PARALLEL) \
+     $(BIN_TEST)
 
-# Build rules
-$(BIN_NAIVE): $(SRC_NAIVE)
+# Build rules - Sequential
+$(BIN_NAIVE_SEQ): $(SRC_NAIVE_SEQ)
 	@$(MKDIR_P) $(BIN_DIR)
 	$(CC) $(CFLAGS) $< -o $@
 
-$(BIN_UNROLLED): $(SRC_UNROLLED)
+$(BIN_UNROLLED_SEQ): $(SRC_UNROLLED_SEQ)
 	@$(MKDIR_P) $(BIN_DIR)
 	$(CC) $(CFLAGS) $< -o $@
 
-$(BIN_BLOCKED): $(SRC_BLOCKED)
+$(BIN_BLOCKED_SEQ): $(SRC_BLOCKED_SEQ)
 	@$(MKDIR_P) $(BIN_DIR)
 	$(CC) $(CFLAGS) $< -o $@
 
-$(BIN_ALIGNED): $(SRC_ALIGNED)
+$(BIN_ALIGNED_SEQ): $(SRC_ALIGNED_SEQ)
 	@$(MKDIR_P) $(BIN_DIR)
 	$(CC) $(CFLAGS) $< -o $@
 
-# If test_matmul.c contains all 4 matmul functions within the same file,
-# it only depends on SRC_TEST. If it requires linking multiple .o files,
-# you'd adjust accordingly.
+# Build rules - Parallel
+$(BIN_NAIVE_PARALLEL): $(SRC_NAIVE_PARALLEL)
+	@$(MKDIR_P) $(BIN_DIR)
+	$(CC) $(CFLAGS) $< -o $@
+
+$(BIN_UNROLLED_PARALLEL): $(SRC_UNROLLED_PARALLEL)
+	@$(MKDIR_P) $(BIN_DIR)
+	$(CC) $(CFLAGS) $< -o $@
+
+$(BIN_BLOCKED_PARALLEL): $(SRC_BLOCKED_PARALLEL)
+	@$(MKDIR_P) $(BIN_DIR)
+	$(CC) $(CFLAGS) $< -o $@
+
+$(BIN_ALIGNED_PARALLEL): $(SRC_ALIGNED_PARALLEL)
+	@$(MKDIR_P) $(BIN_DIR)
+	$(CC) $(CFLAGS) $< -o $@
+
+# Test build rule
 $(BIN_TEST): $(SRC_TEST)
 	@$(MKDIR_P) $(BIN_DIR)
 	$(CC) $(CFLAGS) $< -o $@
 
-# Clean rule: removes the compiled executables
-# (but does not delete the bin folder itself)
+# Clean rule
 clean:
-	rm -f $(BIN_DIR)/*.exe
+	rm -f $(BIN_DIR)/*
 
-# --------------------------------------------------------------------
-# Optional convenience commands to run each executable:
-#   Usage: make run_naive N=1024 T=8
-# --------------------------------------------------------------------
-run_naive: $(BIN_NAIVE)
-	@$(BIN_NAIVE) $(N) $(T)
+# Run targets - Sequential
+run_naive_seq: $(BIN_NAIVE_SEQ)
+	@$(BIN_NAIVE_SEQ) $(N) $(T)
 
-run_unrolled: $(BIN_UNROLLED)
-	@$(BIN_UNROLLED) $(N) $(T)
+run_unrolled_seq: $(BIN_UNROLLED_SEQ)
+	@$(BIN_UNROLLED_SEQ) $(N) $(T)
 
-# For blocked, we also need a block size B, e.g. make run_blocked N=1024 T=8 B=64
-run_blocked: $(BIN_BLOCKED)
-	@$(BIN_BLOCKED) $(N) $(T) $(B)
+run_blocked_seq: $(BIN_BLOCKED_SEQ)
+	@$(BIN_BLOCKED_SEQ) $(N) $(T) $(B)
 
-run_aligned: $(BIN_ALIGNED)
-	@$(BIN_ALIGNED) $(N) $(T)
+run_aligned_seq: $(BIN_ALIGNED_SEQ)
+	@$(BIN_ALIGNED_SEQ) $(N) $(T)
 
-# --------------------------------------------------------------------
-# Run the test executable (test_matmul)
-# This typically does a small 5x5 check comparing all methods.
-# --------------------------------------------------------------------
+# Run targets - Parallel
+run_naive_parallel: $(BIN_NAIVE_PARALLEL)
+	@$(BIN_NAIVE_PARALLEL) $(N) $(T)
+
+run_unrolled_parallel: $(BIN_UNROLLED_PARALLEL)
+	@$(BIN_UNROLLED_PARALLEL) $(N) $(T)
+
+run_blocked_parallel: $(BIN_BLOCKED_PARALLEL)
+	@$(BIN_BLOCKED_PARALLEL) $(N) $(T) $(B)
+
+run_aligned_parallel: $(BIN_ALIGNED_PARALLEL)
+	@$(BIN_ALIGNED_PARALLEL) $(N) $(T)
+
+# Test run target
 run_test: $(BIN_TEST)
 	@$(BIN_TEST)
+
+# Declare phony targets
+.PHONY: all clean run_naive_seq run_unrolled_seq run_blocked_seq run_aligned_seq \
+        run_naive_parallel run_unrolled_parallel run_blocked_parallel run_aligned_parallel run_test

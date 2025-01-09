@@ -1,0 +1,25 @@
+Cache Performance Analysis
+==========================
+Program: matmul_blocked_parallel
+Matrix Size: 4096
+Block Size: 64
+Threads: 16
+Date: Thu Jan  9 12:19:38 AM +03 2025
+==========================\n
+
+ Performance counter stats for '../bin/matmul_blocked_parallel 4096 16 64':
+
+    70,885,146,120      L1-dcache-load-misses:u          #   67.55% of all L1-dcache accesses 
+   104,937,319,421      L1-dcache-loads:u                                                     
+        69,989,289      LLC-load-misses:u                #   71.36% of all LL-cache accesses  
+        98,080,800      LLC-loads:u                                                           
+
+       9.335110997 seconds time elapsed
+
+      99.163633000 seconds user
+       1.325403000 seconds sys
+
+
+
+---------------------------
+

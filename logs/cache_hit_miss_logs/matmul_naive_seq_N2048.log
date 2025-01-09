@@ -1,0 +1,23 @@
+Cache Performance Analysis
+==========================
+Program: matmul_naive_seq
+Matrix Size: 2048
+Date: Wed Jan  8 11:59:40 PM +03 2025
+==========================\n
+
+ Performance counter stats for '../bin/matmul_naive_seq 2048':
+
+     9,594,236,819      L1-dcache-load-misses:u          #   73.50% of all L1-dcache accesses 
+    13,052,798,279      L1-dcache-loads:u                                                     
+     1,057,106,590      LLC-load-misses:u                #   12.58% of all LL-cache accesses  
+     8,405,485,870      LLC-loads:u                                                           
+
+      25.212494557 seconds time elapsed
+
+      25.067432000 seconds user
+       0.067810000 seconds sys
+
+
+
+---------------------------
+

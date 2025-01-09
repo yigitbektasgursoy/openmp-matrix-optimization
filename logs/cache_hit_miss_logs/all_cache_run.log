@@ -1,0 +1,182 @@
+2025-01-08 23:56:58 : Starting cache performance analysis...
+2025-01-08 23:56:58 : Running analysis for matmul_aligned_parallel (N=1024, T=2)
+[Aligned] N=1024, threads=2, time=0.679279 sec
+2025-01-08 23:56:58 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_aligned_parallel_N1024_T2.log
+2025-01-08 23:56:58 : Running analysis for matmul_aligned_parallel (N=1024, T=4)
+[Aligned] N=1024, threads=4, time=0.357763 sec
+2025-01-08 23:56:59 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_aligned_parallel_N1024_T4.log
+2025-01-08 23:56:59 : Running analysis for matmul_aligned_parallel (N=1024, T=8)
+[Aligned] N=1024, threads=8, time=0.311722 sec
+2025-01-08 23:56:59 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_aligned_parallel_N1024_T8.log
+2025-01-08 23:56:59 : Running analysis for matmul_aligned_parallel (N=1024, T=16)
+[Aligned] N=1024, threads=16, time=0.238287 sec
+2025-01-08 23:56:59 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_aligned_parallel_N1024_T16.log
+2025-01-08 23:56:59 : Running analysis for matmul_aligned_seq (N=1024)
+[Aligned] N=1024, time=2.207827 sec
+2025-01-08 23:57:02 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_aligned_seq_N1024.log
+2025-01-08 23:57:02 : Running analysis for matmul_blocked_parallel (N=1024, T=2)
+[Blocked] N=1024, threads=2, block_size=64, time=0.339777 sec
+2025-01-08 23:57:02 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_blocked_parallel_N1024_T2.log
+2025-01-08 23:57:02 : Running analysis for matmul_blocked_parallel (N=1024, T=4)
+[Blocked] N=1024, threads=4, block_size=64, time=0.189437 sec
+2025-01-08 23:57:02 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_blocked_parallel_N1024_T4.log
+2025-01-08 23:57:02 : Running analysis for matmul_blocked_parallel (N=1024, T=8)
+[Blocked] N=1024, threads=8, block_size=64, time=0.125786 sec
+2025-01-08 23:57:02 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_blocked_parallel_N1024_T8.log
+2025-01-08 23:57:02 : Running analysis for matmul_blocked_parallel (N=1024, T=16)
+[Blocked] N=1024, threads=16, block_size=64, time=0.131549 sec
+2025-01-08 23:57:03 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_blocked_parallel_N1024_T16.log
+2025-01-08 23:57:03 : Running analysis for matmul_blocked_seq (N=1024)
+[Blocked] N=1024, block_size=64, time=0.719711 sec
+2025-01-08 23:57:03 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_blocked_seq_N1024.log
+2025-01-08 23:57:03 : Running analysis for matmul_naive_parallel (N=1024, T=2)
+[Naive] N=1024, threads=2, time=0.691143 sec
+2025-01-08 23:57:04 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_naive_parallel_N1024_T2.log
+2025-01-08 23:57:04 : Running analysis for matmul_naive_parallel (N=1024, T=4)
+[Naive] N=1024, threads=4, time=0.384560 sec
+2025-01-08 23:57:05 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_naive_parallel_N1024_T4.log
+2025-01-08 23:57:05 : Running analysis for matmul_naive_parallel (N=1024, T=8)
+[Naive] N=1024, threads=8, time=0.212178 sec
+2025-01-08 23:57:05 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_naive_parallel_N1024_T8.log
+2025-01-08 23:57:05 : Running analysis for matmul_naive_parallel (N=1024, T=16)
+[Naive] N=1024, threads=16, time=0.225562 sec
+2025-01-08 23:57:05 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_naive_parallel_N1024_T16.log
+2025-01-08 23:57:05 : Running analysis for matmul_naive_seq (N=1024)
+[Naive] N=1024, time=2.093028 sec
+2025-01-08 23:57:07 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_naive_seq_N1024.log
+2025-01-08 23:57:07 : Running analysis for matmul_unrolled_parallel (N=1024, T=2)
+[Unrolled] N=1024, threads=2, time=0.655304 sec
+2025-01-08 23:57:08 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_unrolled_parallel_N1024_T2.log
+2025-01-08 23:57:08 : Running analysis for matmul_unrolled_parallel (N=1024, T=4)
+[Unrolled] N=1024, threads=4, time=0.372882 sec
+2025-01-08 23:57:08 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_unrolled_parallel_N1024_T4.log
+2025-01-08 23:57:08 : Running analysis for matmul_unrolled_parallel (N=1024, T=8)
+[Unrolled] N=1024, threads=8, time=0.283164 sec
+2025-01-08 23:57:09 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_unrolled_parallel_N1024_T8.log
+2025-01-08 23:57:09 : Running analysis for matmul_unrolled_parallel (N=1024, T=16)
+[Unrolled] N=1024, threads=16, time=0.234823 sec
+2025-01-08 23:57:09 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_unrolled_parallel_N1024_T16.log
+2025-01-08 23:57:09 : Running analysis for matmul_unrolled_seq (N=1024)
+[Unrolled] N=1024, time=2.093309 sec
+2025-01-08 23:57:11 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_unrolled_seq_N1024.log
+2025-01-08 23:57:11 : Running analysis for matmul_aligned_parallel (N=2048, T=2)
+[Aligned] N=2048, threads=2, time=39.947540 sec
+2025-01-08 23:57:51 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_aligned_parallel_N2048_T2.log
+2025-01-08 23:57:51 : Running analysis for matmul_aligned_parallel (N=2048, T=4)
+[Aligned] N=2048, threads=4, time=23.789826 sec
+2025-01-08 23:58:15 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_aligned_parallel_N2048_T4.log
+2025-01-08 23:58:15 : Running analysis for matmul_aligned_parallel (N=2048, T=8)
+[Aligned] N=2048, threads=8, time=2.862985 sec
+2025-01-08 23:58:18 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_aligned_parallel_N2048_T8.log
+2025-01-08 23:58:18 : Running analysis for matmul_aligned_parallel (N=2048, T=16)
+[Aligned] N=2048, threads=16, time=5.387022 sec
+2025-01-08 23:58:24 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_aligned_parallel_N2048_T16.log
+2025-01-08 23:58:24 : Running analysis for matmul_aligned_seq (N=2048)
+[Aligned] N=2048, time=30.949379 sec
+2025-01-08 23:58:55 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_aligned_seq_N2048.log
+2025-01-08 23:58:55 : Running analysis for matmul_blocked_parallel (N=2048, T=2)
+[Blocked] N=2048, threads=2, block_size=64, time=3.180285 sec
+2025-01-08 23:58:58 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_blocked_parallel_N2048_T2.log
+2025-01-08 23:58:58 : Running analysis for matmul_blocked_parallel (N=2048, T=4)
+[Blocked] N=2048, threads=4, block_size=64, time=1.943382 sec
+2025-01-08 23:59:01 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_blocked_parallel_N2048_T4.log
+2025-01-08 23:59:01 : Running analysis for matmul_blocked_parallel (N=2048, T=8)
+[Blocked] N=2048, threads=8, block_size=64, time=1.105013 sec
+2025-01-08 23:59:02 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_blocked_parallel_N2048_T8.log
+2025-01-08 23:59:02 : Running analysis for matmul_blocked_parallel (N=2048, T=16)
+[Blocked] N=2048, threads=16, block_size=64, time=1.090954 sec
+2025-01-08 23:59:03 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_blocked_parallel_N2048_T16.log
+2025-01-08 23:59:03 : Running analysis for matmul_blocked_seq (N=2048)
+[Blocked] N=2048, block_size=64, time=6.224221 sec
+2025-01-08 23:59:10 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_blocked_seq_N2048.log
+2025-01-08 23:59:10 : Running analysis for matmul_naive_parallel (N=2048, T=2)
+[Naive] N=2048, threads=2, time=12.480377 sec
+2025-01-08 23:59:22 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_naive_parallel_N2048_T2.log
+2025-01-08 23:59:22 : Running analysis for matmul_naive_parallel (N=2048, T=4)
+[Naive] N=2048, threads=4, time=5.535323 sec
+2025-01-08 23:59:28 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_naive_parallel_N2048_T4.log
+2025-01-08 23:59:28 : Running analysis for matmul_naive_parallel (N=2048, T=8)
+[Naive] N=2048, threads=8, time=5.596523 sec
+2025-01-08 23:59:34 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_naive_parallel_N2048_T8.log
+2025-01-08 23:59:34 : Running analysis for matmul_naive_parallel (N=2048, T=16)
+[Naive] N=2048, threads=16, time=6.330563 sec
+2025-01-08 23:59:40 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_naive_parallel_N2048_T16.log
+2025-01-08 23:59:40 : Running analysis for matmul_naive_seq (N=2048)
+[Naive] N=2048, time=25.068064 sec
+2025-01-09 00:00:05 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_naive_seq_N2048.log
+2025-01-09 00:00:05 : Running analysis for matmul_unrolled_parallel (N=2048, T=2)
+[Unrolled] N=2048, threads=2, time=12.000015 sec
+2025-01-09 00:00:18 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_unrolled_parallel_N2048_T2.log
+2025-01-09 00:00:18 : Running analysis for matmul_unrolled_parallel (N=2048, T=4)
+[Unrolled] N=2048, threads=4, time=5.577444 sec
+2025-01-09 00:00:23 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_unrolled_parallel_N2048_T4.log
+2025-01-09 00:00:23 : Running analysis for matmul_unrolled_parallel (N=2048, T=8)
+[Unrolled] N=2048, threads=8, time=3.311518 sec
+2025-01-09 00:00:27 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_unrolled_parallel_N2048_T8.log
+2025-01-09 00:00:27 : Running analysis for matmul_unrolled_parallel (N=2048, T=16)
+[Unrolled] N=2048, threads=16, time=5.995647 sec
+2025-01-09 00:00:33 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_unrolled_parallel_N2048_T16.log
+2025-01-09 00:00:33 : Running analysis for matmul_unrolled_seq (N=2048)
+[Unrolled] N=2048, time=29.084437 sec
+2025-01-09 00:01:02 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_unrolled_seq_N2048.log
+2025-01-09 00:01:02 : Running analysis for matmul_aligned_parallel (N=4096, T=2)
+[Aligned] N=4096, threads=2, time=207.420121 sec
+2025-01-09 00:04:30 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_aligned_parallel_N4096_T2.log
+2025-01-09 00:04:30 : Running analysis for matmul_aligned_parallel (N=4096, T=4)
+[Aligned] N=4096, threads=4, time=105.298768 sec
+2025-01-09 00:06:16 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_aligned_parallel_N4096_T4.log
+2025-01-09 00:06:16 : Running analysis for matmul_aligned_parallel (N=4096, T=8)
+[Aligned] N=4096, threads=8, time=58.898013 sec
+2025-01-09 00:07:16 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_aligned_parallel_N4096_T8.log
+2025-01-09 00:07:16 : Running analysis for matmul_aligned_parallel (N=4096, T=16)
+[Aligned] N=4096, threads=16, time=71.131535 sec
+2025-01-09 00:08:28 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_aligned_parallel_N4096_T16.log
+2025-01-09 00:08:28 : Running analysis for matmul_aligned_seq (N=4096)
+[Aligned] N=4096, time=617.280984 sec
+2025-01-09 00:18:46 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_aligned_seq_N4096.log
+2025-01-09 00:18:46 : Running analysis for matmul_blocked_parallel (N=4096, T=2)
+[Blocked] N=4096, threads=2, block_size=64, time=24.111751 sec
+2025-01-09 00:19:10 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_blocked_parallel_N4096_T2.log
+2025-01-09 00:19:10 : Running analysis for matmul_blocked_parallel (N=4096, T=4)
+[Blocked] N=4096, threads=4, block_size=64, time=13.551727 sec
+2025-01-09 00:19:25 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_blocked_parallel_N4096_T4.log
+2025-01-09 00:19:25 : Running analysis for matmul_blocked_parallel (N=4096, T=8)
+[Blocked] N=4096, threads=8, block_size=64, time=12.359487 sec
+2025-01-09 00:19:38 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_blocked_parallel_N4096_T8.log
+2025-01-09 00:19:38 : Running analysis for matmul_blocked_parallel (N=4096, T=16)
+[Blocked] N=4096, threads=16, block_size=64, time=8.641759 sec
+2025-01-09 00:19:47 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_blocked_parallel_N4096_T16.log
+2025-01-09 00:19:47 : Running analysis for matmul_blocked_seq (N=4096)
+[Blocked] N=4096, block_size=64, time=49.804840 sec
+2025-01-09 00:20:38 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_blocked_seq_N4096.log
+2025-01-09 00:20:38 : Running analysis for matmul_naive_parallel (N=4096, T=2)
+[Naive] N=4096, threads=2, time=216.483145 sec
+2025-01-09 00:24:15 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_naive_parallel_N4096_T2.log
+2025-01-09 00:24:15 : Running analysis for matmul_naive_parallel (N=4096, T=4)
+[Naive] N=4096, threads=4, time=113.713058 sec
+2025-01-09 00:26:09 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_naive_parallel_N4096_T4.log
+2025-01-09 00:26:09 : Running analysis for matmul_naive_parallel (N=4096, T=8)
+[Naive] N=4096, threads=8, time=64.475652 sec
+2025-01-09 00:27:14 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_naive_parallel_N4096_T8.log
+2025-01-09 00:27:14 : Running analysis for matmul_naive_parallel (N=4096, T=16)
+[Naive] N=4096, threads=16, time=134.198399 sec
+2025-01-09 00:29:29 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_naive_parallel_N4096_T16.log
+2025-01-09 00:29:29 : Running analysis for matmul_naive_seq (N=4096)
+[Naive] N=4096, time=583.803206 sec
+2025-01-09 00:39:13 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_naive_seq_N4096.log
+2025-01-09 00:39:13 : Running analysis for matmul_unrolled_parallel (N=4096, T=2)
+[Unrolled] N=4096, threads=2, time=226.482805 sec
+2025-01-09 00:43:00 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_unrolled_parallel_N4096_T2.log
+2025-01-09 00:43:00 : Running analysis for matmul_unrolled_parallel (N=4096, T=4)
+[Unrolled] N=4096, threads=4, time=104.557652 sec
+2025-01-09 00:44:46 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_unrolled_parallel_N4096_T4.log
+2025-01-09 00:44:46 : Running analysis for matmul_unrolled_parallel (N=4096, T=8)
+[Unrolled] N=4096, threads=8, time=55.332562 sec
+2025-01-09 00:45:42 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_unrolled_parallel_N4096_T8.log
+2025-01-09 00:45:42 : Running analysis for matmul_unrolled_parallel (N=4096, T=16)
+[Unrolled] N=4096, threads=16, time=94.153161 sec
+2025-01-09 00:47:16 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_unrolled_parallel_N4096_T16.log
+2025-01-09 00:47:16 : Running analysis for matmul_unrolled_seq (N=4096)
+[Unrolled] N=4096, time=492.880979 sec
+2025-01-09 00:55:30 : Analysis completed. Results saved to ../logs/cache_hit_miss_logs/matmul_unrolled_seq_N4096.log
+2025-01-09 00:55:30 : All analyses completed. Results available in ../logs/cache_hit_miss_logs
